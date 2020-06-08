@@ -11,6 +11,7 @@ import comCustomMsg from "../../../../infra/components/CustomMsg";
 import Logo from "../../../../../public/images/moedas80x80.png";
 import useStyles from './styles';
 import {useRef} from "react";
+import {useEffect} from "react";
 
 const Login = (
     {
@@ -26,10 +27,27 @@ const Login = (
 
     const [textBtn, setTextBtn] = useState('Login');
     const [recuperarSenha, setRecuperarSenha] = useState(false)
-    const [erro, setErro] = useState([])
-    const [msgErroInput, setMsgErroInput] = useState([])
+    const [erro, setErro] = useState({})
+    const [msgErroInput, setMsgErroInput] = useState({})
     const inputEmail = useRef(null);
     const inputSenha = useRef(null);
+
+    useEffect(() => {
+        inputEmail.current.focus();
+    }, []);
+        
+    const submit = () => {
+        const email = inputEmail.current.value;
+
+        if (isEmpty(email)) {
+            setErro( erro.email = true );
+            setMsgErroInput(msgErroInput.email = 'Email Obrigatorio!');
+            return;
+        }
+        
+        alert("Passou")
+        
+    }
 
     return (
         <>
@@ -50,8 +68,8 @@ const Login = (
                     type="email"
                     defaultValue=""
                     inputRef={inputEmail}
-                    error={erro['email']}
-                    helperText={msgErroInput['email']}
+                    error={erro.email}
+                    helperText={msgErroInput.email}
                 />
                 {
                     !recuperarSenha && (
@@ -88,7 +106,7 @@ const Login = (
                         marginTop: 24, marginBottom: 24, color: 'white', backgroundColor: '#028743',
                     }}
                     onClick={() => {
-                        // onClink()
+                        submit()
                     }}
                 >
                     {textBtn}
