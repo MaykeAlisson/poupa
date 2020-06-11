@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 
-import Contexto from '../../contexto'
+import Contexto from '../../../../contexto'
 import './styles.css';
 
 const Home = () => {

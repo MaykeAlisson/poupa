@@ -1,12 +1,7 @@
 import React, {useState} from 'react';
+import {useEffect} from "react";
 
 import Paper from '@material-ui/core/Paper';
-
-import useStyles from './styles';
-import Background from '../../../public/images/linhas-curvas.png';
-import Login from './component/Login';
-import Cadastro from './component/Cadastro';
-import {useEffect} from "react";
 import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
@@ -14,6 +9,12 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogActions from "@material-ui/core/DialogActions";
 import Button from "@material-ui/core/Button";
 import Link from "@material-ui/core/Link";
+
+import useStyles from './styles';
+import Background from '../../../public/images/linhas-curvas.png';
+import Login from './component/Login';
+import Cadastro from './component/Cadastro';
+
 
 const Acesso = () => {
     const classes = useStyles();

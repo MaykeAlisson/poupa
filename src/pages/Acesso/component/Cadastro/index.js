@@ -26,7 +26,6 @@ const Cadastro = (
 ) => {
     const classes = useStyles();
     
-    const [erro, setErro] = useState({});
     const inputNome = useRef(null);
     const inputNascimento = useRef(null);
     const inputSexo = useRef(null);
@@ -34,21 +33,21 @@ const Cadastro = (
     const inputSenha = useRef(null);
     const inputConfirmaSenha = useRef(null);
     
-    // const [erroNome, setErroNome] = useState(false);
-    // const [erroNome, setErroNome] = useState(false);
-    // const [erroNome, setErroNome] = useState(false);
-    // const [erroNome, setErroNome] = useState(false);
-    // const [erroNome, setErroNome] = useState(false);
-    // const [erroNome, setErroNome] = useState(false);
-    // const [erroNome, setErroNome] = useState(false);
-    // const [erroNome, setErroNome] = useState(false);
-    // const [erroNome, setErroNome] = useState(false);
-    // const [erroNome, setErroNome] = useState(false);
+    const [erroNome, setErroNome] = useState(false);
+    const [msgErroNome, setMsgErroNome] = useState('');
+    const [erroNascimento, setErroNascimento] = useState(false);
+    const [msgErroNascimento, setMsgErroNascimento] = useState('');
+    const [erroEmail, setErroEmail] = useState(false);
+    const [msgErroEmail, setMsgErroEmail] = useState('');
+    const [erroSenha, setErroSenha] = useState(false);
+    const [msgErroSenha, setMsgErroSenha] = useState('');
+    const [erroConfSenha, setErroConfSenha] = useState(false);
+    const [msgErroConfSenha, setMsgErroConfSenha] = useState('');
     // const [erroNome, setErroNome] = useState(false);
     // const [erroNome, setErroNome] = useState(false);
     
     const cadastro = () => {
-        
+                
         const nome = inputNome.current.value;
         const nascimento = inputNascimento.current.value;
         // const sexo = inputSexo.current.value;
@@ -57,11 +56,26 @@ const Cadastro = (
         const confimaSenha = inputConfirmaSenha.current.value;
         
         if (isEmpty(nome)) {
-            setErro(erro['nome'] = true);
-            setErro(erro['msgNome'] = "Nome obrigatorio!");
+            setErroNome(true);
+            setMsgErroNome("Nome obrigatorio!");
             return;
         }
-        
+        setErroNome(false);
+        setMsgErroNome("");
+        if (isEmpty(nascimento)) {
+            setErroNascimento(true);
+            setMsgErroNascimento("Data Nascimento obrigatorio!");
+            return;
+        }
+        setErroNascimento(false);
+        setMsgErroNascimento("");
+        if (isEmpty(email)) {
+            setErroEmail(true);
+            setMsgErroEmail("Email obrigatorio!");
+            return;
+        }
+        setErroNascimento(false);
+        setMsgErroNascimento("");
         alert("Passou Cadastro")
     }
     
@@ -83,8 +97,8 @@ const Cadastro = (
                     type="text"
                     defaultValue=""
                     inputRef={inputNome}
-                    error={erro['nome']}
-                    helperText={erro['msgNome']}
+                    error={erroNome}
+                    helperText={msgErroNome}
                 />
                 <TextField
                     className={classes.input}
@@ -96,6 +110,8 @@ const Cadastro = (
                         shrink: true,
                     }}
                     inputRef={inputNascimento}
+                    error={erroNascimento}
+                    helperText={msgErroNascimento}
                 />
                 <FormLabel required className={classes.input} component="legend">Sexo</FormLabel>
                 <RadioGroup row aria-label="position" name="position" defaultValue="top">
@@ -120,6 +136,8 @@ const Cadastro = (
                     type="text"
                     defaultValue=""
                     inputRef={inputEmail}
+                    error={erroEmail}
+                    helperText={msgErroEmail}
                 />
                 <TextField
                     className={classes.input}
@@ -129,6 +147,8 @@ const Cadastro = (
                     type="text"
                     defaultValue=""
                     inputRef={inputSenha}
+                    error={erroSenha}
+                    helperText={msgErroSenha}
                 />
                 <TextField
                     className={classes.input}
@@ -138,6 +158,8 @@ const Cadastro = (
                     type="text"
                     defaultValue=""
                     inputRef={inputConfirmaSenha}
+                    error={erroConfSenha}
+                    helperText={msgErroConfSenha}
                 />
                 <Button
                     variant="contained"
