@@ -1,4 +1,7 @@
 import React from 'react';
+import {Route, Switch} from "react-router-dom";
+import {useHistory} from "react-router-dom";
+
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -15,18 +18,17 @@ import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-
+import useTheme from "@material-ui/core/styles/useTheme";
 
 import useStyles from './styles';
-import useTheme from "@material-ui/core/styles/useTheme";
-import {Route, Switch} from "react-router-dom";
 import Home from "./component/Home";
 import Profile from "./component/Profile";
 
 function ResponsiveDrawer(props) {
     const classes = useStyles();
-    
-    const { window } = props;
+    let history = useHistory();
+
+    const {window} = props;
     const theme = useTheme();
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -36,22 +38,28 @@ function ResponsiveDrawer(props) {
 
     const drawer = (
         <div>
-            <div className={classes.toolbar} />
-            <Divider />
+            <div className={classes.toolbar}/>
+            <Divider/>
             <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
+                <ListItem button key={1} onClick={() => { history.push("/");}}>
+                    <ListItemIcon> <InboxIcon/> </ListItemIcon>
+                    <ListItemText primary='Home'/>
+                </ListItem>
+                <ListItem button key={2} onClick={() => { history.push("/profile");}}>
+                    <ListItemIcon> <MailIcon/> </ListItemIcon>
+                    <ListItemText primary='Profile'/>
+                </ListItem>
+                <ListItem button key={3} onClick={() => { history.push("/objetivos");}}>
+                    <ListItemIcon> <InboxIcon/> </ListItemIcon>
+                    <ListItemText primary='Objetivos'/>
+                </ListItem>
             </List>
-            <Divider />
+            <Divider/>
             <List>
                 {['All mail', 'Trash', 'Spam'].map((text, index) => (
                     <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
+                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>
+                        <ListItemText primary={text}/>
                     </ListItem>
                 ))}
             </List>
@@ -62,7 +70,7 @@ function ResponsiveDrawer(props) {
 
     return (
         <div className={classes.root}>
-            <CssBaseline />
+            <CssBaseline/>
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
                     <IconButton
@@ -72,7 +80,7 @@ function ResponsiveDrawer(props) {
                         onClick={handleDrawerToggle}
                         className={classes.menuButton}
                     >
-                        <MenuIcon />
+                        <MenuIcon/>
                     </IconButton>
                     <Typography variant="h6" noWrap>
                         Responsive drawer
@@ -111,11 +119,11 @@ function ResponsiveDrawer(props) {
                 </Hidden>
             </nav>
             <main className={classes.content}>
-                <div className={classes.toolbar} />
+                <div className={classes.toolbar}/>
                 <Switch>
-                    <Route path='/' exact component={Home} />
-                    <Route path='/profile' exact component={Profile} />
-                    <Route component={Home} />
+                    <Route path='/' exact component={Home}/>
+                    <Route path='/profile' exact component={Profile}/>
+                    <Route component={Home}/>
                 </Switch>
             </main>
         </div>
