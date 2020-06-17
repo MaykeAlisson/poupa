@@ -13,6 +13,7 @@ export default makeStyles((theme) => ({
         },
     },
     appBar: {
+        background: "#9932CC",
         [theme.breakpoints.up('sm')]: {
             width: `calc(100% - ${drawerWidth}px)`,
             marginLeft: drawerWidth,
@@ -32,5 +33,35 @@ export default makeStyles((theme) => ({
     content: {
         flexGrow: 1,
         padding: theme.spacing(3),
+    },
+    iconeUser:{
+        // display: 'flex',
+        justifyContent: 'flex-end',
+    },
+    nomeUsuario:{
+        // display: 'flex',
+        // justifyContent: 'flex-end',
+    },
+    iconeSair: {
+        // display: 'flex',
+        justifyContent: 'flex-end',
+    },
+    grow: {
+        flexGrow: 1,
+    },
+    // menuButton: {
+    //     marginRight: theme.spacing(2),
+    // },
+    title: {
+        display: 'none',
+        [theme.breakpoints.up('sm')]: {
+            display: 'block',
+        },
+    },
+    sectionDesktop: {
+        display: 'flex',
+        // [theme.breakpoints.up('md')]: {
+        //     display: 'flex',
+        // },
     },
 }));

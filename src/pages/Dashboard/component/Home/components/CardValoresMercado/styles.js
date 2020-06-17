@@ -4,9 +4,14 @@ export default makeStyles((theme) => ({
     container: {
         [theme.breakpoints.up('md')]: {
             display: 'flex',
-            justifyContent: 'center',
         },
-        
+    },
+    cards: {
+        [theme.breakpoints.up('md')]: {
+            width: '220px',
+            height: '120px',
+            marginRight: '10px',
+        },
     },
 
 }));

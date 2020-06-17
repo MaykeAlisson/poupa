@@ -19,6 +19,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import useTheme from "@material-ui/core/styles/useTheme";
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 import useStyles from './styles';
 import Home from "./component/Home";
@@ -37,19 +39,25 @@ function ResponsiveDrawer(props) {
     };
 
     const drawer = (
-        <div>
+        <div style={{backgroundColor: '#F8F8FF'}}>
             <div className={classes.toolbar}/>
             <Divider/>
             <List>
-                <ListItem button key={1} onClick={() => { history.push("/");}}>
+                <ListItem button key={1} onClick={() => {
+                    history.push("/");
+                }}>
                     <ListItemIcon> <InboxIcon/> </ListItemIcon>
                     <ListItemText primary='Home'/>
                 </ListItem>
-                <ListItem button key={2} onClick={() => { history.push("/profile");}}>
+                <ListItem button key={2} onClick={() => {
+                    history.push("/profile");
+                }}>
                     <ListItemIcon> <MailIcon/> </ListItemIcon>
                     <ListItemText primary='Profile'/>
                 </ListItem>
-                <ListItem button key={3} onClick={() => { history.push("/objetivos");}}>
+                <ListItem button key={3} onClick={() => {
+                    history.push("/objetivos");
+                }}>
                     <ListItemIcon> <InboxIcon/> </ListItemIcon>
                     <ListItemText primary='Objetivos'/>
                 </ListItem>
@@ -75,7 +83,7 @@ function ResponsiveDrawer(props) {
                 <Toolbar>
                     <IconButton
                         color="inherit"
-                        aria-label="open drawer"
+                        aria-label="abrir Menu"
                         edge="start"
                         onClick={handleDrawerToggle}
                         className={classes.menuButton}
@@ -83,8 +91,18 @@ function ResponsiveDrawer(props) {
                         <MenuIcon/>
                     </IconButton>
                     <Typography variant="h6" noWrap>
-                        Responsive drawer
+                        Poupa Grana
                     </Typography>
+                    <div className={classes.grow}/>
+                    <div className={classes.sectionDesktop}>
+                        <IconButton aria-label="Usuario">
+                            <AccountCircle/>
+                        </IconButton>
+                        <p>Usuario</p>
+                        <IconButton aria-label="Sair" onClick={() => {alert('sair')}}>
+                            <ExitToAppIcon  className={classes.iconeSair}/>
+                        </IconButton>
+                    </div>
                 </Toolbar>
             </AppBar>
             <nav className={classes.drawer} aria-label="mailbox folders">
