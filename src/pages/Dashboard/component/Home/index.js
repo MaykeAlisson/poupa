@@ -4,6 +4,7 @@ import useStyles from './styles';
 import Contexto from '../../../../contexto'
 import CardValoresMercado from "./components/CardValoresMercado";
 import CardNoticiasMercado from "./components/CardNoticiasMercado";
+import CardLivros from "./components/CardLivros";
 
 
 const Home = () => {
@@ -15,7 +16,10 @@ const Home = () => {
         <>
             <div className={classes.container}>
                 <CardValoresMercado/>
+            </div>
+            <div className={classes.sessionRecomend}>
                 <CardNoticiasMercado/>
+                <CardLivros/>
             </div>
             {/*<h1>Page Home</h1>*/}
             {/*<h2>{usuario}</h2>*/}

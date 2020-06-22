@@ -5,8 +5,13 @@ export default makeStyles((theme) => ({
         [theme.breakpoints.up('md')]: {
             display: 'flex',
             justifyContent: 'center',
-        },
-        
+        },        
     },
+    sessionRecomend:{
+        [theme.breakpoints.up('md')]: {
+            display: 'flex',
+            justifyContent: 'center',
+        },
+    }
 
 }));

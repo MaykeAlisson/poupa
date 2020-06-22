@@ -2,6 +2,8 @@ import React, {useContext} from 'react';
 
 import Contexto from '../../../../contexto'
 import useStyles from "./styles";
+import CardCredito from "./components/CardCredito";
+import CardContas from "./components/CardContas";
 
 const Contas = () => {
 
@@ -11,8 +13,8 @@ const Contas = () => {
 
     return (
         <>
-            <h1>Page Contas</h1>
-            <h2>{usuario}</h2>
+            <CardCredito/>
+            <CardContas/>
         </>
     );
 

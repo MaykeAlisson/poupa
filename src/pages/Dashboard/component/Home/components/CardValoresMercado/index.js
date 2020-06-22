@@ -29,6 +29,11 @@ const CardValoresMercado = () => {
             </Card>
             <Card className={classes.cards}>
                 <Typography>
+                  Pensar no que colocar
+                </Typography>
+            </Card>
+            <Card className={classes.cards}>
+                <Typography>
                     Ibovespa: 1.300pt
                 </Typography>
                 <Typography>
