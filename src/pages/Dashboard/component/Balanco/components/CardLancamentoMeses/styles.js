@@ -2,16 +2,16 @@ import {makeStyles} from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
     container: {
+        justifyContent: 'center',
         [theme.breakpoints.up('md')]: {
-            // display: 'flex',
         },
     },
-    card: {
+    cards: {
         boxShadow: '5px 10px 18px #888888',
         [theme.breakpoints.up('md')]: {
-            width: '300px',
-            height: '300px',
-            margin: '10px',
+            width: '220px',
+            height: '120px',
+            marginRight: '10px',
         },
     },
 

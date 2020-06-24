@@ -2,6 +2,7 @@ import {makeStyles} from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
     root: {
+        boxShadow: '5px 10px 18px #888888',
         [theme.breakpoints.up('md')]: {
             width: 300,
             margin: '10px',

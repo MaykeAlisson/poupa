@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 
 import Contexto from '../../../../contexto'
 import useStyles from "./styles";
+import CardLancamentosMeses from "./components/CardLancamentoMeses";
 
 const Balanco = () => {
 
@@ -11,8 +12,7 @@ const Balanco = () => {
 
     return (
         <>
-            <h1>Page Balanco</h1>
-            <h2>{usuario}</h2>
+            <CardLancamentosMeses/>
         </>
     );
 

@@ -7,9 +7,7 @@ export default makeStyles((theme) => ({
         },
     },
     card: {
-        // webkitBoxShadow: '9px 7px 5px rgba(50, 50, 50, 0.77)',
-        // mozBoxShadow:    '9px 7px 5px rgba(50, 50, 50, 0.77)',
-        // boxShadow:         '9px 7px 5px rgba(50, 50, 50, 0.77)',
+        boxShadow: '5px 10px 18px #888888',
         [theme.breakpoints.up('md')]: {
             width: '300px',
             height: '300px',
