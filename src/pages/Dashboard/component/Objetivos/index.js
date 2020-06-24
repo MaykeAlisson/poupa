@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 
 import Contexto from '../../../../contexto'
 import useStyles from "./styles";
+import CardObjetivos from "./components/CardObjetivos";
 
 const Objetivos = () => {
 
@@ -11,8 +12,7 @@ const Objetivos = () => {
 
     return (
         <>
-            <h1>Page Objetivos</h1>
-            <h2>{usuario}</h2>
+            <CardObjetivos/>
         </>
     );
 

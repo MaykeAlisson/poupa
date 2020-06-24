@@ -11,7 +11,7 @@ export default makeStyles((theme) => ({
         [theme.breakpoints.up('md')]: {
             width: '220px',
             height: '120px',
-            marginRight: '10px',
+            margin: '10px',
         },
     },
 
