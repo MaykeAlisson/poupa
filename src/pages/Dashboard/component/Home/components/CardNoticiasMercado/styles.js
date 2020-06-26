@@ -8,10 +8,10 @@ export default makeStyles((theme) => ({
     },
     card: {
         boxShadow: '5px 10px 18px #888888',
+        margin: '10px',
         [theme.breakpoints.up('md')]: {
             width: '300px',
             height: '300px',
-            margin: '10px',
         },
     },
 

@@ -21,9 +21,6 @@ const Home = () => {
                 <CardNoticiasMercado/>
                 <CardLivros/>
             </div>
-            {/*<h1>Page Home</h1>*/}
-            {/*<h2>{usuario}</h2>*/}
-            {/*<span>{numero}</span>*/}
         </>
     );
 

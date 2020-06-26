@@ -2,73 +2,63 @@ import React from 'react';
 
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
-import Button from "@material-ui/core/Button";
 
 import useStyles from './styles';
-import Box from "@material-ui/core/Box";
-import LinearProgress from "@material-ui/core/LinearProgress";
-import ColoredLinearProgress from "../../../../../../infra/components/CustomBarraProgress";
+import BarraDeProgresso from "../../../../../../infra/components/CustomBarraProgress";
+import Motivacional from "../../../../../../infra/util/Motivacional/frases";
+import formatBR from "../../../../../../infra/util/BR/formatBR";
 
+const objetivo = [
+    {id: 1, descricao: 'Objetivo1', tag: 'tag1', objetivo: 30000, atual: 15000},
+    {id: 2, descricao: 'Objetivo2', tag: 'tag2', objetivo: 10000, atual: 4000},
+    {id: 3, descricao: 'Objetivo3', tag: 'tag3', objetivo: 5000, atual: 1000},
+    {id: 4, descricao: 'Objetivo4', tag: 'tag4', objetivo: 15000, atual: 6000},
+    {id: 5, descricao: 'Objetivo5', tag: 'tag5', objetivo: 3000, atual: 535},
+];
 
-function LinearProgressWithLabel(props) {
-    const styles = props => ({
-        colorPrimary: {
-            backgroundColor: '#00695C',
-        },
-        barColorPrimary: {
-            backgroundColor: '#B2DFDB',
-        }
-    });
-    return (
-        <Box display="flex" alignItems="center">
-            <Box width="50%" mr={1}>
-                <ColoredLinearProgress {...props}/>
-                {/*<LinearProgress classes={{colorPrimary: styles.colorPrimary, barColorPrimary: styles.barColorPrimary}} variant="determinate" {...props} />*/}
-            </Box>
-            <Box minWidth={35}>
-                <Typography variant="body2" color="textSecondary">{`${Math.round(
-                    props.value,
-                )}%`}</Typography>
-            </Box>
-        </Box>
-    );
-}
 
 const CardObjetivos = () => {
 
     const classes = useStyles();
-    const bull = <span className={classes.bullet}>•</span>;
-    
+
     return (
-        <Card className={classes.root} variant="outlined">
-            <CardContent>
-                <Typography className={classes.title} color="textSecondary" gutterBottom>
-                    Reserva de Emergencia
-                </Typography>
-                <div>
-                    <Typography color="textSecondary" gutterBottom>
-                        Objetivo
-                    </Typography>
-                    <Typography variant="h5" component="h2">
-                        R$ 20.000{bull}
-                    </Typography>
-                    <LinearProgressWithLabel value={30} />
-                    <Typography color="textSecondary" gutterBottom>
-                        Atual
-                    </Typography>
-                    <Typography variant="h5" component="h2">
-                        R$ 6.000{bull}
-                    </Typography>
-                </div>
-                <Typography variant="body2" component="p">
-                    {'"A disciplina é a mãe do êxito."'}
-                    <br/>
-                    {' Ésquilo'}
-                </Typography>
-            </CardContent>
-        </Card>
+        <>
+            {
+                objetivo.map(obj => (
+                    <Card className={classes.root} variant="outlined">
+                        <CardContent key={obj.id}>
+                            <Typography key={`${obj.id}_${obj.descricao}`} className={classes.title} gutterBottom>
+                                {obj.descricao}
+                            </Typography>
+                            <Typography key={`${obj.id}_${obj.tag}`} color="textSecondary" gutterBottom>
+                                Tag - {obj.tag}
+                            </Typography>
+                            <div key={`${obj.id}_${obj.objetivo}_classProgresso`} className={classes.progresso}>
+                                <div key={`${obj.id}_${obj.objetivo}_classObjetivo`} className={classes.objetivo}>
+                                    <Typography key={`${obj.id}_objetivo`} color="textSecondary" gutterBottom>
+                                        Objetivo - 
+                                    </Typography>
+                                    <Typography key={`${obj.id}_${obj.objetivo}`} style={{fontWeight: 'bold', marginRight: '5px', marginLeft: '5px'}}>
+                                       {formatBR(obj.objetivo)}
+                                    </Typography>
+                                </div>
+                                <BarraDeProgresso value={(obj.atual / obj.objetivo )  * 100} />
+                                <div key={`${obj.id}_${obj.objetivo}_classAtual`} className={classes.atual}>
+                                    <Typography key={`${obj.id}_atual`} color="textSecondary" gutterBottom>
+                                        Atual - 
+                                    </Typography>
+                                    <Typography key={`${obj.id}_${obj.atual}`} style={{fontWeight: 'bold', marginRight: '5px', marginLeft: '5px'}}>
+                                        {formatBR(obj.atual)}
+                                    </Typography>
+                                </div>
+                            </div>
+                            {Motivacional.getFrase()}
+                        </CardContent>
+                    </Card>
+                ))
+            }
+        </>
     );
 }
 

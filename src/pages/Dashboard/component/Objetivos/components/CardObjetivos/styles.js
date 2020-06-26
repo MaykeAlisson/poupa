@@ -2,20 +2,31 @@ import {makeStyles} from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
     root: {
-        minWidth: 275,
-    },
-    bullet: {
-        display: 'inline-block',
-        margin: '0 2px',
-        transform: 'scale(0.8)',
+        boxShadow: '5px 10px 18px #888888',
+        maxWidth: 600,
+        margin: '10px',
     },
     title: {
-        fontSize: 14,
+        fontWeight: 'bold',
     },
-    pos: {
-        marginBottom: 12,
+    progresso: {
+        [theme.breakpoints.up('md')]: {
+            display: 'flex',
+            // justifyContent: 'center',
+        },
     },
-    colorPrimary: {
-        background: "green"
-    }
+    objetivo: {
+        display: 'flex',
+        [theme.breakpoints.up('md')]: {
+            display: 'flex',
+            // justifyContent: 'center',
+        },
+    },
+    atual: {
+        display: 'flex',
+        [theme.breakpoints.up('md')]: {
+            display: 'flex',
+            // justifyContent: 'center',
+        },
+    },
 }));
