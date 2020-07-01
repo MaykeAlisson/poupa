@@ -11,7 +11,7 @@ const Profile = () => {
     
     return (
         <>
-            <h1>Page Profile</h1>
+            <h1 className={classes.container}>EM BREVE</h1>
         </>
     );
 

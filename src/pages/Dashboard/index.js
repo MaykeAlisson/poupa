@@ -26,6 +26,7 @@ import BallotIcon from '@material-ui/icons/Ballot';
 import TimelineIcon from '@material-ui/icons/Timeline';
 import InfoIcon from '@material-ui/icons/Info';
 import ConfirmationNumberIcon from '@material-ui/icons/ConfirmationNumber';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
 
 import useStyles from './styles';
 import Home from "./component/Home";
@@ -35,6 +36,7 @@ import Balanco from "./component/Balanco";
 import Objetivos from "./component/Objetivos";
 import Configuracoes from "./component/Configuracoes";
 import Informacoes from "./component/Informacoes";
+import Lancamento from "./component/Lancamento";
 
 function ResponsiveDrawer(props) {
     const classes = useStyles();
@@ -58,6 +60,12 @@ function ResponsiveDrawer(props) {
                 }}>
                     <ListItemIcon> <HomeIcon/> </ListItemIcon>
                     <ListItemText primary='Home'/>
+                </ListItem>
+                <ListItem button key={1} onClick={() => {
+                    history.push("/lancamento");
+                }}>
+                    <ListItemIcon> <AddCircleIcon/> </ListItemIcon>
+                    <ListItemText primary='Lançamento'/>
                 </ListItem>
                 <ListItem button key={2} onClick={() => {
                     history.push("/contas");
@@ -170,6 +178,9 @@ function ResponsiveDrawer(props) {
                 <div className={classes.toolbar}/>
                 <Switch>
                     <Route path='/' exact component={Home}/>
+                    <Route path='/lancamento' exact component={Lancamento}/>
+                    {/*<Route path='/lancamento/credito' exact component={LancamentoCredito}/>*/}
+                    {/*<Route path='/lancamento' exact component={Lancamento}/>*/}
                     <Route path='/contas' exact component={Contas}/>
                     <Route path='/balanco' exact component={Balanco}/>
                     <Route path='/objetivos' exact component={Objetivos}/>
