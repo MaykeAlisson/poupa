@@ -61,25 +61,25 @@ function ResponsiveDrawer(props) {
                     <ListItemIcon> <HomeIcon/> </ListItemIcon>
                     <ListItemText primary='Home'/>
                 </ListItem>
-                <ListItem button key={1} onClick={() => {
+                <ListItem button key={2} onClick={() => {
                     history.push("/lancamento");
                 }}>
                     <ListItemIcon> <AddCircleIcon/> </ListItemIcon>
                     <ListItemText primary='Lançamento'/>
                 </ListItem>
-                <ListItem button key={2} onClick={() => {
+                <ListItem button key={3} onClick={() => {
                     history.push("/contas");
                 }}>
                     <ListItemIcon> <AccountBalanceWalletIcon/> </ListItemIcon>
                     <ListItemText primary='Minhas Contas'/>
                 </ListItem>
-                <ListItem button key={3} onClick={() => {
+                <ListItem button key={4} onClick={() => {
                     history.push("/balanco");
                 }}>
                     <ListItemIcon> <TimelineIcon/> </ListItemIcon>
                     <ListItemText primary='Balanço'/>
                 </ListItem>
-                <ListItem button key={4} onClick={() => {
+                <ListItem button key={5} onClick={() => {
                     history.push("/objetivos");
                 }}>
                     <ListItemIcon> <BallotIcon/> </ListItemIcon>
@@ -88,19 +88,19 @@ function ResponsiveDrawer(props) {
             </List>
             <Divider/>
             <List>
-                <ListItem button key={5} onClick={() => {
+                <ListItem button key={6} onClick={() => {
                     history.push("/perfil");
                 }}>
                     <ListItemIcon> <PersonIcon/> </ListItemIcon>
                     <ListItemText primary='Perfil'/>
                 </ListItem>
-                <ListItem button key={6} onClick={() => {
+                <ListItem button key={7} onClick={() => {
                     history.push("/configuracoes");
                 }}>
                     <ListItemIcon> <ConfirmationNumberIcon/> </ListItemIcon>
                     <ListItemText primary='Configurações'/>
                 </ListItem>
-                <ListItem button key={7} onClick={() => {
+                <ListItem button key={8} onClick={() => {
                     history.push("/informacoes");
                 }}>
                     <ListItemIcon> <InfoIcon/> </ListItemIcon>

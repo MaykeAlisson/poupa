@@ -11,6 +11,8 @@ import useStyles from "./styles";
 import AppBar from "@material-ui/core/AppBar";
 import Box from "@material-ui/core/Box";
 import Paper from "@material-ui/core/Paper";
+import LancamentoCredito from "./components/LancamentoCredito";
+import LancamentoDespesas from "./components/LancamentoDespesas";
 
 function TabPanel(props) {
     const {children, value, index, ...other} = props;
@@ -24,7 +26,7 @@ function TabPanel(props) {
             aria-labelledby={`simple-tab-${index}`}
             {...other}
         >
-            {value === index && <Box p={3}>{children}</Box>}
+            {value === index && <Box p={1}>{children}</Box>}
         </Typography>
     );
 }
@@ -64,27 +66,20 @@ const Lancamento = (props) => {
                     textColor="primary"
                     centered
                 >
-                    <Tab label="Credito" {...a11yProps(0)} />
-                    <Tab label="Dispesas" {...a11yProps(1)} />
-                    <Tab label="Recorentes" disabled {...a11yProps(2)} />
+                    <Tab key={0} label="Credito" {...a11yProps(0)} />
+                    <Tab key={1} label="Dispesas" {...a11yProps(1)} />
+                    <Tab key={2} label="Recorrentes" disabled {...a11yProps(2)} />
                 </Tabs>
             </AppBar>
             <div>
-            <TabPanel value={value} index={0}>
-                <Paper elevation={3} className="tabs-paper">
-                <Typography>item1</Typography>
-                </Paper>
-            </TabPanel>
-            <TabPanel value={value} index={1}>
-                <Paper elevation={3} className="tabs-paper">
-                <Typography>item2</Typography>
-                </Paper>
-            </TabPanel>
-            <TabPanel value={value} index={2}>
-                <Paper elevation={3} className="tabs-paper">
-                <Typography>item3</Typography>
-                </Paper>
-            </TabPanel>
+                <TabPanel value={value} index={0}>
+                    <Paper elevation={3} className="tabs-paper">
+                        <LancamentoCredito/>
+                    </Paper>
+                </TabPanel>
+                <TabPanel value={value} index={1}>
+                    <LancamentoDespesas/>
+                </TabPanel>
             </div>
         </>
     );
