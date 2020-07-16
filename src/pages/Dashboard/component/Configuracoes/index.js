@@ -1,13 +1,13 @@
 import React, {useContext} from 'react';
 
-import Contexto from '../../../../contexto'
 import useStyles from "./styles";
+import GlobalContext from "Contexts/global";
 
 const Configuracoes = () => {
 
     const classes = useStyles();
+    const {usuario} = useContext(GlobalContext);
 
-    const {usuario, numero} = useContext(Contexto);
 
     return (
         <>

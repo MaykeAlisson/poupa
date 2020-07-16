@@ -1,14 +1,12 @@
-import React, {useContext} from 'react';
+import React from 'react';
 
-import Contexto from '../../../../contexto'
 import useStyles from "./styles";
 
 const Profile = () => {
-    
-    const classes = useStyles();
 
-    const {usuario, numero} = useContext(Contexto);
+    const classes = useStyles();
     
+
     return (
         <>
             <h1 className={classes.container}>EM BREVE</h1>

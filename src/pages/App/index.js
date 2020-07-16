@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import AppProvider from '../../contexto/provider';
+import {GlobalProvider} from 'Contexts/global';
 import Acesso from "../Acesso";
 import Dashboard from '../Dashboard'
 
@@ -16,11 +16,11 @@ export default ({children}) => {
         <>
             {
                 autenticado
-                    ? <AppProvider>
+                    ? <GlobalProvider>
                         <Dashboard onLogoutSuccess={() => setAutenticado(false)}>
                             {children}
                         </Dashboard>
-                    </AppProvider>
+                    </GlobalProvider>
                     : <Acesso onLoginSuccess={() => setAutenticado(true)}/>
             }
         </>

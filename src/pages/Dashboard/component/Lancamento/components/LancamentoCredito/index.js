@@ -1,7 +1,6 @@
 import React, {useContext} from 'react';
 import {useState} from "react";
-import Typography from "@material-ui/core/Typography";
-import Contexto from '../../../../../../contexto';
+
 
 import useStyles from "./styles";
 import Paper from "@material-ui/core/Paper";
@@ -11,21 +10,22 @@ import Button from "@material-ui/core/Button";
 const LancamentoCredito = () => {
 
     const classes = useStyles();
-
-    const {usuario, numero} = useContext(Contexto);
+    
     const [value, setValue] = useState(0);
 
 
     return (
         <>
-            <Paper elevation={3} className="tabs-paper">
+            <Paper elevation={3} className={classes.container}>
                 <TextField
+                    className={classes.lancCredInputValor}
                     label="Valor"
                     type="number"
                     // autoComplete="current-password"
                     variant="outlined"
                 />
                 <TextField
+                    className={classes.lancCredInputDesc}
                     label="Descrição"
                     type="text"
                     // autoComplete="current-password"
@@ -35,9 +35,7 @@ const LancamentoCredito = () => {
                     variant="contained"
                     // fullWidth
                     size="large"
-                    style={{
-                        marginTop: 24, marginBottom: 24, color: 'white', backgroundColor: '#028743',
-                    }}
+                    className={classes.btnSalvar}
                     onClick={() => {
                         
                     }}

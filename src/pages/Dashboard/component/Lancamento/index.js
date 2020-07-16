@@ -6,11 +6,9 @@ import Typography from "@material-ui/core/Typography";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
-import Contexto from '../../../../contexto'
 import useStyles from "./styles";
 import AppBar from "@material-ui/core/AppBar";
 import Box from "@material-ui/core/Box";
-import Paper from "@material-ui/core/Paper";
 import LancamentoCredito from "./components/LancamentoCredito";
 import LancamentoDespesas from "./components/LancamentoDespesas";
 
@@ -48,8 +46,7 @@ function a11yProps(index) {
 const Lancamento = (props) => {
 
     const classes = useStyles();
-
-    const {usuario, numero} = useContext(Contexto);
+    
     const [value, setValue] = useState(0);
 
     const handleChange = (event, newValue) => {
@@ -73,9 +70,7 @@ const Lancamento = (props) => {
             </AppBar>
             <div>
                 <TabPanel value={value} index={0}>
-                    <Paper elevation={3} className="tabs-paper">
-                        <LancamentoCredito/>
-                    </Paper>
+                    <LancamentoCredito/>
                 </TabPanel>
                 <TabPanel value={value} index={1}>
                     <LancamentoDespesas/>

@@ -6,6 +6,9 @@ import {ptBR} from '@material-ui/core/locale';
 import 'typeface-roboto';
 
 import App from './pages/App';
+import {LoadingProvider} from 'Contexts/loading';
+import Loading from 'Components/CustomLoading';
+import {MessageProvider} from 'Contexts/message';
 import Routes from './routes';
 import registrarSW from './serviceWorker';
 
@@ -27,9 +30,15 @@ theme = responsiveFontSizes(theme);
 ReactDOM.render(
     <BrowserRouter>
         <ThemeProvider theme={theme}>
-            <App>
-                {/*<Routes/>*/}
-            </App>
+            <LoadingProvider>
+                <Loading>
+                    <MessageProvider>
+                        <App>
+                            {/*<Routes/>*/}
+                        </App>
+                    </MessageProvider>
+                </Loading>
+            </LoadingProvider>
         </ThemeProvider>
     </BrowserRouter>
     ,

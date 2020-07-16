@@ -32,9 +32,6 @@ module.exports = {
                 use: [
                     {
                         loader: 'file-loader',
-                        // options: {
-                        //     name: '[name].[ext]',
-                        // },
                     },
                 ],
             }
@@ -99,12 +96,10 @@ module.exports = {
     ],
     resolve: {
         alias: {
-            Commons: path.resolve(__dirname, 'src', 'commons'),
             Contexts: path.resolve(__dirname, 'src', 'contexts'),
             Services: path.resolve(__dirname, 'src', 'services'),
             Components: path.resolve(__dirname, 'src', 'infra', 'components'),
             Util: path.resolve(__dirname, 'src', 'infra', 'util'),
-            Icons: path.resolve(__dirname, 'src', 'infra', 'icons'),
             Repository: path.resolve(__dirname, 'src', 'repository')
         },
         extensions: ['.js', '.jsx']
